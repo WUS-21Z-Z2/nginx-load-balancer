@@ -1,0 +1,4 @@
+map $request_method $rest_api_host {
+    GET     $REST_API_READ_HOSTNAME:$REST_API_READ_PORT;
+    default $REST_API_WRITE_HOSTNAME:$REST_API_WRITE_PORT;
+}
