@@ -1,2 +1,5 @@
-envsubst '$REST_API_READ_HOSTNAME,$REST_API_READ_PORT,$REST_API_WRITE_HOSTNAME,$REST_API_WRITE_PORT' < /etc/nginx/upstream.location.template > /etc/nginx/upstream.location
-cat /etc/nginx/upstream.location
+SUBSTITUTED_FILE="/etc/nginx/upstream.location"
+envsubst '$REST_API_READ_HOSTNAME,$REST_API_READ_PORT,$REST_API_WRITE_HOSTNAME,$REST_API_WRITE_PORT' \
+    <"$SUBSTITUTED_FILE.template" \
+    >"$SUBSTITUTED_FILE"
+cat "$SUBSTITUTED_FILE"
